@@ -7,7 +7,7 @@ import Home from "./routes/Home";
 
 const App = createBrowserRouter([
     {
-      path: "/",
+      path: "/reactStudy",
       element: <Home />,
     },
     {
