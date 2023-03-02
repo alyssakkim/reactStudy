@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Movie from "../components/Movie";
+import styles from "./Home.module.css";
 
 function Home(){
     const [loading, setLoading] = useState(true);
@@ -22,10 +23,12 @@ function Home(){
 
     console.log(movies);
     return (
-        <div>
-            {loading ? 
-                (<h1>Loading...</h1>) :
-                (<div>
+        <div className={styles.container}>
+            {loading ? (
+                <div className={styles.loader}>
+                    <span>Loading...</span>
+                </div>
+            ) : (<div className={styles.movies}>
                     {movies.map((movie) => (
                         // Movie 컴포넌트 render
                         <Movie
@@ -35,6 +38,7 @@ function Home(){
                             coverImg={movie.medium_cover_image}
                             // ↑ 우리가 쓰는 컴포넌트라 네이밍은 자유!
                             title={movie.title}
+                            year={movie.year}
                             summary={movie.summary}
                             genres={movie.genres}
                         /> 
